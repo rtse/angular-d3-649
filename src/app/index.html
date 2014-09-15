@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" ng-app="sixFortyNineApp">
+<head> 
+    <title>649 Counter</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="../../libs/jquery/jquery-1.11.1.min.js" charset="utf-8"></script>
+	<script src="../../libs/d3/d3.v3.min.js" charset="utf-8"></script>
+	<script src="../../libs/angular/angular.min.js" charset="utf-8"></script>
+	<script src="../../libs/angularui/ui-bootstrap-tpls-0.11.0.min.js" charset="utf-8"></script>
+	<script src="../../libs/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/SixFortyNineController.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css" >
+    <style>
+    .container{padding:20px;}
+	svg { font: 10px sans-serif;width:1200px;height:1800px; }
+	.y-axis { background-color:#ff0000; }
+	</style>
+</head>
+<body>
+<div class="container" ng-controller="SixFortyNineController">
+	<div class="alert alert-info alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		This tool shows the accumulated times of each 649 winning number drawn in the past.<br/> 
+		The purpose of the tool is to show the usage of D3.js and AngularJS, 
+		with the additional support of UI-Bootstrap and Grunt, etc.<br/>
+		Select the date range and press "Draw" to show the statistics. Sort the result by clicking the "Sort" checkbox.<br/>
+	</div>
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		649 data source: 
+		<a href="http://www.bclc.com/documents/DownloadableNumbers/CSV/649.zip">http://www.bclc.com/documents/DownloadableNumbers/CSV/649.zip</a>
+	</div>
+	
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<label class="col-sm-2" for="fromDate" style="padding-left:0;">From</label>
+			<input id="fromDate" type="text" class="col-sm-2 form-control" datepicker-popup="yyyy-MM-dd"  ng-model="fromDate" is-open="openedTo" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+       		<span class="col-sm-5 input-group-btn" style="padding-left:0;">
+       			<button type="button" class="btn btn-default" ng-click="openToDate($event)">
+       				<i class="glyphicon glyphicon-calendar"></i>
+       			</button>
+       		</span>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2" for="toDate" style="padding-left:0;">To</label>
+			<input id="toDate" type="text" class="col-sm-2 form-control" datepicker-popup="yyyy-MM-dd"  ng-model="toDate" is-open="openedFrom" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+       		<span class="col-sm-5 input-group-btn" style="padding-left:0;">
+       			<button type="button" class="btn btn-default" ng-click="openFromDate($event)">
+       				<i class="glyphicon glyphicon-calendar"></i>
+       			</button>
+       		</span>
+		</div>
+		<div class="form-group">
+			<button type="button" class="btn btn-default" ng-click="draw()">Draw</button>
+			<div class="checkbox">
+				<label>
+					&nbsp;<input type="checkbox" class="sortCheck" ng-model="isSorted" /> Sort
+				</label>
+			</div>
+		</div>
+	</form>
+	<br/>
+	<svg class="bar"></svg>
+</div>
+</body>
+</html>

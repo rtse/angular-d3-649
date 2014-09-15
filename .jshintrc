@@ -1,0 +1,25 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "unused": false,
+  "boss": true,
+  "eqnull": true,
+  "node": true,
+  "globals": {
+        "console": true,
+        "document": true,
+	"window" : true,
+        "jQuery": true,
+        "requirejs": true,
+        "d3" : true,
+	"module": true,
+        "angular" : true,
+	"sixFortyNineApp": true
+    }
+}
