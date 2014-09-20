@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 	      {expand: true, flatten: true, src: ['src/resources/*'], dest: 'dist/app/resources'},
 	      {expand: true, flatten: true, src: ['src/app/js/*'], dest: 'dist/app/js'},
 	      {expand: true, flatten: true, src: ['src/app/js/controllers/*'], dest: 'dist/app/js/controllers'},
+	      {expand: true, flatten: true, src: ['src/app/js/directives/*'], dest: 'dist/app/js/directives'},
 	      {expand: true, flatten: true, src: ['src/app/index.html'], dest: 'dist/app'}
 	    ]
 	  }
