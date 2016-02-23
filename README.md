@@ -2,7 +2,7 @@
 
 This tool is used to show the accumulated times of each 649 winning number drawn in the past.<br/>
 The purpose of the tool is to show the usage of D3.js and AngularJS, with the additional support of UI-Bootstrap, jQuery and Grunt, etc.
-
+<img src="https://github.com/rtse/angular-d3-649/blob/master/demo.png" />
 ## Getting Started
 Download the files and run <br/>
 <code>npm install</code> <br/>
